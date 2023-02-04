@@ -4,24 +4,24 @@ namespace TeamYankeeBLL.SQL
 {
     internal interface IUnitsRepository
     {
-        Task<UsersUnit> GetUserUnitAsync(int unitId);
+        IAsyncEnumerable<UsersUnit> GetUserUnitAsync(int[] listOfUnitId);
         Task AddUserUnitAsync(UsersUnit unit);
-        Task DeleteUserUnitAsync(int unitId);
+        Task DeleteUserUnitAsync(UsersUnit unit);
         Task UpdateUnitAsync(UsersUnit unit);
 
-        Task<UnitsComposition> GetCompositionAsync(int unitId);
+        Task<UnitsComposition> GetCompositionAsync(int referenceId);
         Task AddCompositionAsync(UnitsComposition composition);
-        Task DeleteCompositionAsync(int compositionId);
+        Task DeleteCompositionAsync(UnitsComposition composition);
         Task UpdateCompositionAsync(UnitsComposition composition);
 
         Task<UnitsReference> GetReferenceAsync(int referenceId);
         Task AddReferenceAsync(UnitsReference reference);
-        Task DeleteReferenceAsync(int referenceId);
+        Task DeleteReferenceAsync(UnitsReference reference);
         Task UpdateReferenceAsync(UnitsReference reference);
 
         Task<UnitsType> GetUnitTypeAsync(int unitId);
-        Task AddUnitType(UnitsType unitType);
-        Task DeleteUnitTypeAsync(int typeId);
+        Task AddUnitTypeAsync(UnitsType unitType);
+        Task DeleteUnitTypeAsync(UnitsType type);
         Task UpdateUnitTypeAsync(UnitsType unitType);
     }
 }
