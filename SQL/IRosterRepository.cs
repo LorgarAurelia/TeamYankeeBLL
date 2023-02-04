@@ -6,22 +6,22 @@ namespace TeamYankeeBLL.SQL
     {
         Task<List<Nation>> GetAllNationsAsync();
         Task AddNation(Nation nation);
-        Task DeleteNation(int id);
+        Task DeleteNation(Nation nation);
         Task UpdateNation(Nation nation);
 
         Task<List<RosterDescription>> GetRostersDescryptionsAsync(); //TODO: Входной параметр userId 
         Task AddRoster(RosterDescription roster);
-        Task DeleteRosterAsync(int rosterId);
+        Task DeleteRosterAsync(RosterDescription roster);
         Task UpdateRosterDescryptionAsync(RosterDescription roster);
 
         Task<List<RostersContent>> GetRosterContentAsync(int rosterId);
         Task UpdateRosterContentAsync(RostersContent rosterContent);
         Task AddRosterContentAsync(RostersContent rostersContent);
-        Task DeleteRosterContentAsync(int rosterContentId);
+        Task DeleteRosterContentAsync(RostersContent rostersContent);
 
         Task<List<RostersSupportUnit>> GetRosterSupportUnitsAsync(int rosterId);
         Task AddRosterSupportUnitAsync(RostersSupportUnit supportUnit);
-        Task DeleteRosterRosterSupportUnitAsync(int supportId);
+        Task DeleteRosterRosterSupportUnitAsync(RostersSupportUnit supportUnit);
         Task UpdateRosterSupportUnitAsync(RostersSupportUnit supportUnit);
     }
 }
