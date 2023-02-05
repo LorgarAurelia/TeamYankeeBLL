@@ -6,12 +6,12 @@ namespace TeamYankeeBLL.SQL
     {
         Task<List<UsersUnitsOption>> GetUnitOptionsAsync(int unitId);
         Task AddUserUnitOption(UsersUnitsOption unitOption);
-        Task DeleteUserUnitOption(int unitId);
+        Task DeleteUserUnitOption(UsersUnitsOption unit);
         Task UpdateUserUnitOption(UsersUnitsOption unitOption);
 
         Task<UnitsOptionsReference> GetOptionReferenceAsync(int refrenceId);
         Task AddOptionReferenceAsync(UnitsOptionsReference reference);
-        Task DeleteOptionReferenceAsync(int refrenceId);
+        Task DeleteOptionReferenceAsync(UnitsOptionsReference refrence);
         Task UpdateOptionReferenceAsync(UnitsOptionsReference reference);
     }
 }
