@@ -15,7 +15,7 @@ namespace TeamYankeeBLL.SQL
             using TeamYankeeContext db = new();
             foreach (var id in listOfId)
             {
-                yield return await db.UsersFormations.AsNoTracking().Where(u => u.Id == id).FirstAsync();
+                yield return await db.UsersFormations.AsNoTracking().Where(u => u.Id == id).FirstOrDefaultAsync();
             }
         }
         public async Task AddFormationToRosterAsync(UsersFormation formation)

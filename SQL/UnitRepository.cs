@@ -15,7 +15,7 @@ namespace TeamYankeeBLL.SQL
             using TeamYankeeContext db = new();
             foreach (var id in listOfUnitId)
             {
-                yield return await db.UsersUnits.AsNoTracking().FirstAsync(u => u.Id == id);
+                yield return await db.UsersUnits.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
             }
         }
         public async Task AddUserUnitAsync(UsersUnit unit)
@@ -42,7 +42,7 @@ namespace TeamYankeeBLL.SQL
         public async Task<UnitsComposition> GetCompositionAsync(int referenceId)
         {
             using TeamYankeeContext db = new();
-            return await db.UnitsCompositions.AsNoTracking().FirstAsync(r => r.Id == referenceId);
+            return await db.UnitsCompositions.AsNoTracking().FirstOrDefaultAsync(r => r.Id == referenceId);
         }
         public async Task AddCompositionAsync(UnitsComposition composition)
         {
