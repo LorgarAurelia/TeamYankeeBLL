@@ -8,12 +8,10 @@ namespace TeamYankeeBLL
     public class DataParser : IDataParser
     {
         private readonly IRosterRepository _rosterRepo;
-        private readonly IFormationsRepository _formationRepo;
 
-        public DataParser(IRosterRepository rosterRepository, IFormationsRepository formationsRepository)
+        public DataParser(IRosterRepository rosterRepository)
         {
             _rosterRepo = rosterRepository;
-            _formationRepo = formationsRepository;
         }
 
         public async Task<List<NationDescription>> CollectNationsAsync()
