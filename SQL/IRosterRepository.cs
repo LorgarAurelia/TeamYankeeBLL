@@ -2,7 +2,7 @@
 
 namespace TeamYankeeBLL.SQL
 {
-    internal interface IRosterRepository
+    public interface IRosterRepository
     {
         Task<List<Nation>> GetAllNationsAsync();
         Task AddNation(Nation nation);

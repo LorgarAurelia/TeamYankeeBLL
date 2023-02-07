@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TeamYankeeBLL.DTO
+﻿namespace TeamYankeeBLL.DTO
 {
     public class UnitDesciption
     {
@@ -16,6 +10,5 @@ namespace TeamYankeeBLL.DTO
             Name = name;
         }
         //TODO: UnitCost
-
     }
 }

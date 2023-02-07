@@ -3,7 +3,7 @@ using TeamYankeeBLL.SQL.Models;
 
 namespace TeamYankeeBLL.SQL
 {
-    internal class RosterRepository : IRosterRepository
+    public class RosterRepository : IRosterRepository
     {
         public async Task<List<Nation>> GetAllNationsAsync()
         {
