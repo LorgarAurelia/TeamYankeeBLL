@@ -2,9 +2,9 @@
 
 namespace TeamYankeeBLL.SQL
 {
-    internal interface IFormationsRepository
+    public interface IFormationsRepository
     {
-        IAsyncEnumerable<UsersFormation> GetRosterFormationAsync(List<int> listOfId);
+        IAsyncEnumerable<UsersFormation> GetRosterFormationAsync(int[] listOfId);
         Task AddFormationToRosterAsync(UsersFormation formation);
         Task DeleteFormationFromRosterAsync(UsersFormation formation);
         Task UpdateFormationAsync(UsersFormation formation);

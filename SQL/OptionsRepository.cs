@@ -54,7 +54,11 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentReference = db.UnitsOptionsReferences.Where(r => r.Id == reference.Id).First();
-            currentReference = reference; //TODO:
+            currentReference.UnitId = reference.UnitId;
+            currentReference.Option = reference.Option;
+            currentReference.Price = reference.Price;
+            currentReference.OptionLimit = reference.OptionLimit;
+            currentReference.IsForAll = reference.IsForAll;
             await db.SaveChangesAsync();
         }
 
@@ -62,7 +66,10 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var current = db.UsersUnitsOptions.Where(uu => uu.Id == unitOption.Id).First();
-            current = unitOption;  //TODO:
+            current.UnitId = unitOption.UnitId;
+            current.ReferenceId = unitOption.ReferenceId;
+            current.Count = unitOption.Count;
+            current.Cost = unitOption.Cost;
             await db.SaveChangesAsync();
         }
     }

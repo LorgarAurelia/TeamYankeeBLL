@@ -34,7 +34,10 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentUnit = db.UsersUnits.Where(u => u.Id == unit.Id).First();
-            currentUnit = unit;       //TODO:
+            currentUnit.CompositionId = unit.CompositionId;
+            currentUnit.ReferenceId = unit.ReferenceId;
+            currentUnit.Name = unit.Name;
+            currentUnit.Cost = currentUnit.Cost;
             await db.SaveChangesAsync();
         }
 
@@ -60,7 +63,8 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentComposition = db.UnitsCompositions.First(r => r.Id == composition.Id);
-            currentComposition = composition; //TODO:
+            currentComposition.UnitId = composition.UnitId; 
+            currentComposition.Price = composition.Price;
             await db.SaveChangesAsync();
         }
 
@@ -86,7 +90,11 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentType = db.UnitsTypes.First(t => t.Id == type.Id);
-            currentType = type; //TODO:
+            currentType.UnitId = type.UnitId;
+            currentType.IsHeavyVehicle = type.IsHeavyVehicle;
+            currentType.IsVehicle = type.IsVehicle;
+            currentType.IsInfantry = type.IsInfantry;
+            currentType.IsAircraft = type.IsAircraft;
             await db.SaveChangesAsync();
         }
 
@@ -112,7 +120,12 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currrentReference = db.UnitsReferences.First(t => t.Id == reference.Id);
-            currrentReference = reference; //TODO:
+            currrentReference.Namne = reference.Namne;
+            currrentReference.IsSupport = reference.IsSupport;
+            currrentReference.SupportsLimits = reference.SupportsLimits;
+            currrentReference.IsHasSupportAlternative = reference.IsHasSupportAlternative;
+            currrentReference.AlternativeId = reference.AlternativeId;
+            currrentReference.NationId = reference.NationId;
             await db.SaveChangesAsync();
         }
     }

@@ -10,7 +10,7 @@ namespace TeamYankeeBLL.SQL
 {
     public class FormationRepository : IFormationsRepository
     {
-        public async IAsyncEnumerable<UsersFormation> GetRosterFormationAsync(List<int> listOfId) 
+        public async IAsyncEnumerable<UsersFormation> GetRosterFormationAsync(int[] listOfId) 
         {
             using TeamYankeeContext db = new();
             foreach (var id in listOfId)
@@ -34,7 +34,8 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentFormation = db.UsersFormations.Where(u => u.Id == formation.Id).First();
-            currentFormation = formation; //TODO: проверить как выполняется.
+            currentFormation.Name = formation.Name; 
+            currentFormation.ReferenceId = formation.ReferenceId;
             await db.SaveChangesAsync();
         }
 
@@ -60,7 +61,8 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentAsset = db.FormationsAssets.Where(f => f.Id == asset.Id).First();
-            currentAsset = asset; //TODO:
+            currentAsset.FormationId = asset.FormationId;
+            currentAsset.UnitId = asset.UnitId;
             await db.SaveChangesAsync();
         }
 
@@ -86,7 +88,12 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentComposition = db.FormationsCompositions.Where(fc => fc.Id == composition.Id).First();
-            currentComposition = composition; //TODO:
+            currentComposition.FormationId = composition.FormationId;
+            currentComposition.UnitId = composition.UnitId;
+            currentComposition.MinimalCount = composition.MinimalCount;
+            currentComposition.MaximumCount = composition.MaximumCount;
+            currentComposition.HasAlternative = composition.HasAlternative;
+            currentComposition.AlternativeUnitId = composition.AlternativeUnitId;
             await db.SaveChangesAsync();
         }
 
@@ -112,7 +119,9 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentReference = db.FormationsReferences.First(fr => fr.Id == reference.Id);//TODO: проверить корректность записи
-            currentReference = reference; //TODO:
+            currentReference.Name = reference.Name;
+            currentReference.IsHomemade = reference.IsHomemade;
+            currentReference.NationId = reference.NationId;
             await db.SaveChangesAsync();
         }
     }

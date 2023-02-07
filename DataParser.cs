@@ -1,16 +1,19 @@
 ﻿using TeamYankeeBLL.DTO;
 using TeamYankeeBLL.Exceptions;
 using TeamYankeeBLL.SQL;
+using TeamYankeeBLL.SQL.Models;
 
 namespace TeamYankeeBLL
 {
     public class DataParser : IDataParser
     {
         private readonly IRosterRepository _rosterRepo;
+        private readonly IFormationsRepository _formationRepo;
 
-        public DataParser(IRosterRepository rosterRepository)
+        public DataParser(IRosterRepository rosterRepository, IFormationsRepository formationsRepository)
         {
             _rosterRepo = rosterRepository;
+            _formationRepo = formationsRepository;
         }
 
         public async Task<List<NationDescription>> CollectNationsAsync()
@@ -24,7 +27,7 @@ namespace TeamYankeeBLL
 
             return nations;
         }
-        public async Task AddNationAsync(NationDescription nation)
+        public async Task InsertNationAsync(NationDescription nation)
         {
             await _rosterRepo.AddNation(new() { Name = nation.Nationality });
         }

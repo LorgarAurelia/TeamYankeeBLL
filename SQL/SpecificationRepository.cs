@@ -31,7 +31,19 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentSpecification = db.InfantrySpecifications.Where(i => i.Id == specification.Id).First();
-            currentSpecification = specification;//TODO: 
+            currentSpecification.UnitId = specification.UnitId;
+            currentSpecification.Courage = specification.Courage;
+            currentSpecification.Morale = specification.Morale;
+            currentSpecification.Rally = specification.Rally;
+            currentSpecification.Skill = specification.Skill;
+            currentSpecification.Assault = specification.Assault;
+            currentSpecification.Counterattack = specification.Counterattack;
+            currentSpecification.IsHitOn = currentSpecification.IsHitOn;
+            currentSpecification.InfantrySave = currentSpecification.InfantrySave;
+            currentSpecification.Tactical = currentSpecification.Tactical;
+            currentSpecification.TerrainDash = currentSpecification.TerrainDash;
+            currentSpecification.CrossCountryDash = currentSpecification.CrossCountryDash;
+            currentSpecification.RoadDash = currentSpecification.RoadDash;
             await db.SaveChangesAsync();
         }
 
@@ -57,7 +69,12 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentSpecification = db.AircraftsSpecifications.Where(s => s.Id == specification.Id).First();
-            currentSpecification = specification; //TODO:
+            currentSpecification.UnitId = specification.UnitId;
+            currentSpecification.Courage = specification.Courage;
+            currentSpecification.Morale = specification.Morale;
+            currentSpecification.Skill = specification.Skill;
+            currentSpecification.IsHitOn = specification.IsHitOn;
+            currentSpecification.AircraftSave = specification.AircraftSave;
             await db.SaveChangesAsync();
         }
 
@@ -83,7 +100,20 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentSpecification = db.VehicleSpecifications.Where(s => s.Id == specification.Id).First();
-            currentSpecification = specification; //TODO:
+            currentSpecification.UnitId = specification.UnitId;
+            currentSpecification.Courage = specification.Courage;
+            currentSpecification.Morale = specification.Morale;
+            currentSpecification.Remount = specification.Remount;
+            currentSpecification.Skill = specification.Skill;
+            currentSpecification.Assault = specification.Assault;
+            currentSpecification.Counterattack = currentSpecification.Counterattack;
+            currentSpecification.IsHitOn = specification.IsHitOn;
+            currentSpecification.TankSave = specification.TankSave;
+            currentSpecification.Tactical = specification.Tactical;
+            currentSpecification.TerrainDash = specification.TerrainDash;
+            currentSpecification.CrossCountryDash = specification.CrossCountryDash;
+            currentSpecification.RoadDash = specification.RoadDash;
+            currentSpecification.Cross = specification.Cross;
             await db.SaveChangesAsync();
         }
 
@@ -109,7 +139,22 @@ namespace TeamYankeeBLL.SQL
         {
             using TeamYankeeContext db = new();
             var currentSpecification = db.HeavySpecifications.Where(s => s.Id == specification.Id).First();
-            currentSpecification = specification; //TODO:
+            currentSpecification.UnitId = specification.UnitId;
+            currentSpecification.Courage = specification.Courage;
+            currentSpecification.Morale = specification.Morale;
+            currentSpecification.Remount = specification.Remount;
+            currentSpecification.Skill = specification.Skill;
+            currentSpecification.Assault = specification.Assault;
+            currentSpecification.Counterattack = specification.Counterattack;
+            currentSpecification.IsHitOn = specification.IsHitOn;
+            currentSpecification.Front = specification.Front;
+            currentSpecification.Side = specification.Side;
+            currentSpecification.Top = specification.Top;
+            currentSpecification.Tactical = specification.Tactical;
+            currentSpecification.TerrainDash = specification.TerrainDash;
+            currentSpecification.CrossCountryDash = specification.CrossCountryDash;
+            currentSpecification.RoadDash = specification.RoadDash;
+            currentSpecification.Cross = specification.Cross;
             await db.SaveChangesAsync();
         }
     }
