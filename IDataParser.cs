@@ -7,5 +7,6 @@ namespace TeamYankeeBLL
         Task AddNationAsync(NationDescription nation);
         Task<List<NationDescription>> CollectNationsAsync();
         Task DeleteNationAsync(int NationId);
+        IAsyncEnumerable<RosterBrief> CollectRosterBriefAsync();
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TeamYankeeBLL.DTO;
+﻿using TeamYankeeBLL.DTO;
 using TeamYankeeBLL.Exceptions;
 using TeamYankeeBLL.SQL;
 
@@ -41,6 +36,17 @@ namespace TeamYankeeBLL
                 throw new NoDataException();
             await _rosterRepo.DeleteNation(nationToDelete);
         }
+        public async Task UpdateNations(NationDescription updatedNation)
+        {
+            await _rosterRepo.UpdateNation(new() { Name = updatedNation.Nationality });
+        }
 
+        public async IAsyncEnumerable<RosterBrief> CollectRosterBriefAsync()
+        {
+            foreach (var description in await _rosterRepo.GetRostersDescryptionsAsync())
+            {
+                yield return new(description);
+            }
+        }
     }
 }
